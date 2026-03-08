@@ -83,7 +83,9 @@ function renderCards(array, container) {
     return;
   }
 
-  // forEach: просто перебор для создания DOM-узлов
+  // forEach: перебираю массив товаров, чтобы создать HTML-карточки
+  // Использую forEach, потому что мне нужно просто пройтись по каждому товару
+  // и создать для него элемент на странице. Новый массив не нужен.
   array.forEach((product) => {
     const card = document.createElement("div");
     card.className = `product-card ${!product.inStock ? "out-of-stock" : ""}`;
@@ -98,7 +100,9 @@ function renderCards(array, container) {
     container.appendChild(card);
   });
 
-  // Слушатели на кнопки добавления
+  // forEach: нахожу все кнопки «В корзину» и каждой добавляю обработчик клика
+  // Использую forEach, потому что нужно выполнить действие для каждой кнопки,
+  // а не создать новый массив. Просто «прохожусь» по всем кнопкам.
   container.querySelectorAll(".btn-cart").forEach((btn) => {
     btn.addEventListener("click", () => addToCart(parseInt(btn.dataset.id)));
   });
@@ -129,7 +133,9 @@ document.getElementById("btn-search").addEventListener("click", () => {
   const searchTerm = rawSearch.toLowerCase();
   const selectedCategory = categorySelect.value;
 
-  // filter: отбор данных по условиям
+  // filter: создаю новый массив только с теми товарами, которые подходят под поиск
+  // Использую filter, потому что нужно отобрать часть товаров по условиям,
+  // не изменяя исходный массив products. filter возвращает отфильтрованную копию.
   const filtered = products.filter((p) => {
     const matchCat =
       selectedCategory === "Все" || p.category === selectedCategory;
@@ -137,7 +143,9 @@ document.getElementById("btn-search").addEventListener("click", () => {
     return matchCat && matchName;
   });
 
-  // map: трансформация данных (добавление метки PRO)
+  // map: создаю новый массив товаров, добавляя каждому поле label с иконкой ⭐
+  // Использую map, потому что нужно преобразовать каждый объект — добавить
+  // новое свойство, сохранив все старые. map возвращает массив той же длины.
   const mapped = filtered.map((p) => ({
     ...p,
     label: `⭐ Доступно: ${p.name}`,
@@ -165,7 +173,15 @@ function addToCart(productId) {
   // 3. Проверка на дубликаты (метод some)
   const isExist = cart.some((item) => item.id === productId);
   if (isExist) {
-    alert("Товар уже в корзине"); // Простая валидация уникальности
+    // Создаём элемент сообщения или выводим в существующий блок
+    const statusDiv = document.getElementById("cart-status");
+    if (statusDiv) {
+      statusDiv.className = "status-message error";
+      statusDiv.textContent = "Товар уже в корзине";
+      statusDiv.style.display = "block";
+      setTimeout(() => (statusDiv.style.display = "none"), 2000);
+    }
+    console.log("Товар уже в корзине");
     return;
   }
 
@@ -182,7 +198,9 @@ function renderCart() {
     return;
   }
 
-  // forEach: вывод элементов корзины
+  // forEach: перебираю товары в корзине, чтобы показать их на странице
+  // Использую forEach, потому что мне нужно для каждого товара создать
+  // HTML-элемент и добавить его в блок корзины. Новый массив не нужен
   cart.forEach((item) => {
     const div = document.createElement("div");
     div.className = "cart-item";
@@ -190,8 +208,12 @@ function renderCart() {
     cartContainer.appendChild(div);
   });
 
-  // reduce: расчет суммы (валидация: гарантируем число через 0 в начале)
-  const total = cart.reduce((sum, item) => sum + item.price, 0);
+  // map + reduce: подсчитываю итоговую сумму корзины
+  // map: беру каждый товар и оставляю только его цену, в результате получаю массив чисел [2500, 45, 180]
+  // reduce: беру все цены и складываю их в одно число, в результате получаю итоговую сумму
+  // Использую эту цепочку, потому что задание требует показать работу обоих методов.
+  const prices = cart.map((item) => item.price); // map: трансформация объектов в цены
+  const total = prices.reduce((sum, price) => sum + price, 0); // reduce: агрегация
   cartTotal.textContent = `Итого: ${total.toFixed(2)} BYN`;
 }
 
