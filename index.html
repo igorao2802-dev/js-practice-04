@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JS Practice 04 – Каталог товаров</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <h1>🛒 Каталог товаров</h1>
+    <p class="subtitle">Практическая работа: объекты, массивы, map / filter / forEach, JSON</p>
+  </header>
+
+  <main>
+
+    <!-- ═══════════════════════════════════════════
+         СЕКЦИЯ 1 — КАТАЛОГ
+         Задание 1: вывести все товары через forEach
+    ════════════════════════════════════════════ -->
+    <section class="section" id="section-catalog">
+      <h2>📦 Каталог</h2>
+      <button id="btn-show-all" class="btn btn-primary">Показать все товары</button>
+      <!-- Сюда forEach вставит карточки товаров -->
+      <div id="catalog-container" class="cards-grid"></div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         СЕКЦИЯ 2 — ФИЛЬТРЫ И ПОИСК
+         Задание 2: filter по категории
+         Задание 3: filter + map по названию
+    ════════════════════════════════════════════ -->
+    <section class="section" id="section-filters">
+      <h2>🔍 Фильтры и поиск</h2>
+      <div class="filter-row">
+        <input
+          type="text"
+          id="search-input"
+          class="input"
+          placeholder="Поиск по названию..."
+        />
+        <select id="category-select" class="select">
+          <option value="Все">Все категории</option>
+          <option value="Электроника">Электроника</option>
+          <option value="Мебель">Мебель</option>
+          <option value="Книги">Книги</option>
+        </select>
+        <button id="btn-search" class="btn btn-secondary">Найти</button>
+      </div>
+      <!-- Сюда выводятся результаты поиска/фильтрации -->
+      <div id="filter-results" class="cards-grid"></div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         СЕКЦИЯ 3 — КОРЗИНА
+         Задание 4: добавление, map для суммы, очистка
+    ════════════════════════════════════════════ -->
+    <section class="section" id="section-cart">
+      <h2>🛍️ Корзина</h2>
+      <div class="btn-row">
+        <button id="btn-show-cart" class="btn btn-primary">Показать корзину</button>
+        <button id="btn-clear-cart" class="btn btn-danger">Очистить корзину</button>
+      </div>
+      <!-- Сюда forEach выведет товары корзины -->
+      <div id="cart-container" class="cart-list"></div>
+      <!-- Сюда выводится итоговая сумма -->
+      <div id="cart-total" class="cart-total"></div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         СЕКЦИЯ 4 — СОХРАНЕНИЕ (localStorage)
+         Задание 5: JSON.stringify / JSON.parse
+    ════════════════════════════════════════════ -->
+    <section class="section" id="section-storage">
+      <h2>💾 Сохранение корзины</h2>
+      <div class="btn-row">
+        <button id="btn-save" class="btn btn-secondary">Сохранить в localStorage</button>
+        <button id="btn-load" class="btn btn-secondary">Загрузить из localStorage</button>
+      </div>
+      <!-- Сюда выводится статус операции -->
+      <div id="storage-status" class="status-message"></div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         СЕКЦИЯ 5 — СТАТИСТИКА (PRO)
+         Задание 6: map + filter + reduce + Set
+    ════════════════════════════════════════════ -->
+    <section class="section" id="section-stats">
+      <h2>📊 Статистика каталога <span class="badge-pro">PRO</span></h2>
+      <button id="btn-stats" class="btn btn-secondary">Показать статистику</button>
+      <!-- Сюда выводится статистика -->
+      <div id="stats-container" class="stats-block"></div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>js-practice-04 · Группа 2509 · 2026</p>
+  </footer>
+
+  <!-- Весь JavaScript — только здесь, в script.js -->
+  <script src="script.js"></script>
+</body>
+</html>
