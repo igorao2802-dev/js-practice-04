@@ -1,4 +1,4 @@
-# Практическая работа №4: Объекты, Массивы и Методы Перебора
+# Практическая работа №4: Объекты, массивы и методы перебора
 
 > Проект «Каталог товаров» — закрепление тем: Объекты, Массивы, map/filter/forEach, JSON, localStorage.
 
@@ -125,6 +125,7 @@ const total = prices.reduce((sum, price) => sum + price, 0);
 cartTotal.textContent = `Итого: ${total.toFixed(2)} BYN`;
 ```
 </details>
+
 ## ❓ Ответы на контрольные вопросы (Interview Questions)
 
 ### 1. В чём разница между `map()` и `forEach()`? Когда использовать каждый?
