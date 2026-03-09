@@ -251,9 +251,12 @@ const total = prices.reduce((sum, price) => sum + price, 0); // 2725
 
 ## 📸 Скриншоты работы
 
-[Каталог товаров](screenshots/catalog.png)
-[Фильтр по категории](screenshots/filter.png)
-[Поиск по названию](screenshots/search.png)
-[Корзина с суммой](screenshots/cart.png)
-[localStorage в консоли](screenshots/json-console.png)
-[Статистика каталога](screenshots/stats.png)
+![Каталог товаров](screenshots/catalog.png)
+![Фильтр по категории](screenshots/filter.png)
+![Поиск по названию](screenshots/search.png)
+![Корзина с суммой](screenshots/cart.png)
+![localStorage в консоли](screenshots/json-console.png)
+![Статистика каталога](screenshots/stats.png)
+
+_Задание выполнил: [Осадчий И.А.]_  
+_Дата: 09.03.2026_
