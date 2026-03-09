@@ -126,6 +126,8 @@ cartTotal.textContent = `Итого: ${total.toFixed(2)} BYN`;
 ```
 </details>
 
+---
+
 ## ❓ Ответы на контрольные вопросы (Interview Questions)
 
 ### 1. В чём разница между `map()` и `forEach()`? Когда использовать каждый?
