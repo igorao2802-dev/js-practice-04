@@ -18,6 +18,9 @@
 
 ## 📋 Созданные функции и их назначение
 
+<details>
+  <summary>Нажмите, чтобы развернуть</summary>
+
 ### 🌍 Глобальные данные
 
 | Переменная | Тип              | Назначение                                          |
@@ -121,7 +124,7 @@ const prices = cart.map((item) => item.price);
 const total = prices.reduce((sum, price) => sum + price, 0);
 cartTotal.textContent = `Итого: ${total.toFixed(2)} BYN`;
 ```
-
+</details>
 ## ❓ Ответы на контрольные вопросы (Interview Questions)
 
 ### 1. В чём разница между `map()` и `forEach()`? Когда использовать каждый?
